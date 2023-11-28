@@ -1,0 +1,73 @@
+int BST<T>::height(Node<T>* p)
+
+   What if p is null? What is the height of an empty tree?
+
+============================================================================
+
+virtual void BST<T>::insert(T data)
+
+   After inserting a new node, do not forget to walk back to 
+   the root, adjusting heights as needed. DO NOT recalculate
+   the height of each node recursively!
+
+============================================================================
+
+void AvlTree<T>::insert(T data)
+
+   1. Insert data via BST<T>::insert.
+   2. Walk back to the root to find first unbalanced node x.
+      a. Find trinode successor y of x.
+      b. Find trinode successor z of y.
+      c. Apply trinode_restructure to x, y, and z.
+   3. Continue walking back the root, updating height attribute if necessary
+   4. Update the root (if changed by trinode restructuring).
+
+============================================================================
+
+Node<T>* AvlTree<T>::trinode_restructure(Node<T>* x, Node<T>* y, Node<T>* z) 
+
+  Question: Why does this method return a pointer to a node? 
+  Answer: It returns a pointer to the root (which might have changed as a 
+          result of restructuring) so that the the insert method can update 
+          the root. This means that the last line of AvlTree<T>::insert
+          should be: BST<T>::root = trinode_restructure(x, y, z);
+
+  The following ASCII art illustrates the four cases that may arise when
+  performing trinode restructuring. If you include it in your documentation,
+  it may help you to organize your logic, and it may certainly help me to
+  understand what you are trying to do.
+
+	*          X                 Y
+	*         / \              /   \
+	*        Y   a            Z     X
+	*       / \       ==>    / \   / \
+	*      Z   b            c   d b   a
+	*     / \
+	*    c   d
+
+	*
+	*     X                Y
+	*    / \             /   \
+	*   a   Y    ==>    X     Z
+	*      / \         / \   / \
+	*     b   Z       a   b c   d
+	*        / \
+	*       c   d
+
+	*       X                     Z
+	*      / \                  /   \
+	*     Y   a                Y     X
+	*    / \          ==>     / \   / \
+	*   b   Z                b   c d   a
+	*      / \
+	*     c   d
+ 
+	*       X                     Z
+	*      / \                  /   \
+	*     a   y                X     Y
+	*        / \      ==>     / \   / \
+	*       Z   b            a   c d   b
+	*      / \
+	*     c   d
+  
+   
