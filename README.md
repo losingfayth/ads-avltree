@@ -1,6 +1,8 @@
 # AVL Tree vs. Binary Search Tree Height Comparison in C++
 **authors:** fayth quinn ([*@losingfayth*](https://github.com/losingfayth)), drue coles
 
+*20th November 2023*
+
 This program implements two tree data structures,
  * A **Binary Search Tree** *(BST)*, defined as a tree where every node can have at most two children, with all children, grandchildren, etc., in its left child having data smaller than its data and all children, grandchildren, etc., in its right child having data greater than its data
  * An **AVL Tree** *(AVL)*, defined as a Binary Search Tree that restructures itself on insertion or deletion to ensure that the height of any given left child of some node and the height of any given right child of that node have a difference of no more than one (1)
