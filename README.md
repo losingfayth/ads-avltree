@@ -13,7 +13,10 @@ To ensure the height values are as accurate as possible, the program will random
 
 
 ## Context
-The program was created as part of a school project. This project was completed in ~4 days.
+The program was created as part of a school project for a class on Algorithms & Data Structures.
+
+## Project Time
+~4 Days
 
 ## Known Issues
 The program tends to hang on larger `n` values (`m = 2`<sup>`n`</sup>), as each trial takes some time and each subsequent repition adds onto that. Currently, values >16 are known to take a significant amount of time. The program is working correctly, it just takes a while.
